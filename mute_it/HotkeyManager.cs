@@ -37,6 +37,11 @@ namespace mute_it
                 {
                     context.unmuteMic();
                 }
+
+                if (m.WParam.ToInt32() == MuteItContext.TOGGLE_CODE)
+                {
+                    context.toggleMicStatus();
+                }
             }
             base.WndProc(ref m);
         }
