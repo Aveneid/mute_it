@@ -15,6 +15,7 @@ namespace mute_it
 
         public static int MUTE_CODE = 123;
         public static int UNMUTE_CODE = 234;
+        public static int TOGGLE_CODE = 345;
 
         private static Double REFRESH_INTERVAL = 1000;
         private NotifyIcon tbIcon;
@@ -35,6 +36,7 @@ namespace mute_it
 
             RegisterHotKey(manager.Handle, MUTE_CODE, Constants.SHIFT + Constants.ALT, (int)Keys.P);
             RegisterHotKey(manager.Handle, UNMUTE_CODE, Constants.SHIFT + Constants.ALT, (int)Keys.O);
+            RegisterHotKey(manager.Handle, TOGGLE_CODE, Constants.SHIFT + Constants.ALT, (int)Keys.L);
 
             return manager;
         }
@@ -107,7 +109,7 @@ namespace mute_it
             }
         }
 
-        private void toggleMicStatus()
+        public void toggleMicStatus()
         {
             var device = getPrimaryMicDevice();
 
